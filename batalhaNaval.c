@@ -3,9 +3,10 @@
 // Desafio Batalha Naval - MateCheck
 
 int main() {
-    // Nível Novato - Posicionamento dos Navios (333)
-    // Declaração de matriz bidimensional para representar o tabuleiro
+    // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
+    // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
     char letras[] = "A B C D E F G H I J";
+    int i, j;
     int tabuleiro[10][10] = {
         {0,},
         {1,},
@@ -23,16 +24,18 @@ int main() {
     tabuleiro[2][2] = 3, tabuleiro[2][3] = 3, tabuleiro[2][4] = 3;
     tabuleiro[4][8] = 3, tabuleiro[5][8] = 3, tabuleiro[6][8] = 3;
     
-    for(int i = 0; i < 10; i++){
-        for(int j = 0; j < 10; j++){
+    for(i = 0; i < 10; i++){
+        for(j = 0; j < 10; j++){
+            if(tabuleiro[i] == tabuleiro[j] && i > 5 && i < 9){
+                tabuleiro[i][j] = 3;
+            }
             printf("%d ", tabuleiro[i][j]);
         }
         printf("\n");
     }
 
-    // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
-    // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
     // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
+
     // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
 
     // Nível Mestre - Habilidades Especiais com Matrizes
