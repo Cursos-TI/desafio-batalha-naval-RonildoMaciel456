@@ -26,17 +26,17 @@ int main() {
     
     for(i = 0; i < 10; i++){
         for(j = 0; j < 10; j++){
+            //Duas estruturas condicionais que posicionam 2 navios na diagonal
             if(tabuleiro[i] == tabuleiro[j] && i > 5 && i < 9){
+                tabuleiro[i][j] = 3;
+            }
+            if(i + j == 8 && i > -1 && i < 3 ){
                 tabuleiro[i][j] = 3;
             }
             printf("%d ", tabuleiro[i][j]);
         }
         printf("\n");
     }
-
-    // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
-
-    // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
 
     // Nível Mestre - Habilidades Especiais com Matrizes
     // Sugestão: Crie matrizes para representar habilidades especiais como cone, cruz, e octaedro.
