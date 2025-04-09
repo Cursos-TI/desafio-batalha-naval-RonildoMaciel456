@@ -3,12 +3,14 @@
 // Desafio Batalha Naval - MateCheck
 
 int main() {
+    
     // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
-    // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
-    printf("*** Batalha Naval - Nível Aventureiro ***\n\n");
+    // Expandindo o tabuleiro para uma matriz 10x10.
+    printf("*** Batalha Naval - Nível Aventureiro - Tabuleiro com 4 navios (333) ***\n\n");
     // Alterei o vetor das colunas que antes era de letras para números para melhor referenciar os índices
     printf("   0 1 2 3 4 5 6 7 8 9\n");
     int i, j;
+    //variável da Matriz do Tabuleiro
     int tabuleiro[10][10] = {0};
 
     //Exibindo o tabuleiro e posicionando 2 navios: um na horizontal e outro na vertical
@@ -31,37 +33,45 @@ int main() {
         printf("\n");
     }
     
-    printf("\n");
     
-    printf("*** Batalha Naval - Nível Mestre ***");
-
-
-
-
+    printf("\n");
 
     // Nível Mestre - Habilidades Especiais com Matrizes
-    // Sugestão: Crie matrizes para representar habilidades especiais como cone, cruz, e octaedro.
-    // Sugestão: Utilize estruturas de repetição aninhadas para preencher as áreas afetadas por essas habilidades no tabuleiro.
-    // Sugestão: Exiba o tabuleiro com as áreas afetadas, utilizando 0 para áreas não afetadas e 1 para áreas atingidas.
-
-
-
-    // Exemplos de exibição das habilidades:
-    // Exemplo para habilidade em cone:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 1 1 1 1 1
-    
-    // Exemplo para habilidade em octaedro:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 0 0 1 0 0
-
-    // Exemplo para habilidade em cruz:
-    // 0 0 1 0 0
-    // 1 1 1 1 1
-    // 0 0 1 0 0
-
-    return 0;
-    
+    printf("*** Batalha Naval - Nível Mestre - Tabuleiro com Habilidades (Cone, Octaedro e Cruz) ***\n\n");
+    // Linha que exibe os índices do vetor [y]
+    printf("   0 1 2 3 4 5 6 7 8 9\n");
+    //variáveis para manipular os vetores
+    int x,y;
+    //varíavel da Matriz do Tabuleiro2
+    int tabuleiro2[10][10] = {0};
+    //Loop aninhado para exibir a Matriz Tabuleiro[x][y]
+    for(x = 0; x < 10; x++){
+        printf("%d  ", x);
+        for(y = 0; y < 10; y++){
+            //Condicional para criar habilidade em "cone"
+            if(x < 3 && y >= 2 - x && y <= 2 + x){
+                tabuleiro2[x][y] = 1;
+            }
+            //Condicionais para criar habilidade em "octaedro"
+            if(x >= 7 && x <= 8 && x - y == 5 && y < 4){
+                tabuleiro2[x][y] = 1;
+            }
+            if(x >= 8 && x <= 9 && x - y == 7 && y < 3){
+                tabuleiro2[x][y] = 1;
+            }
+            if(x == 8 && y== 2) {
+                tabuleiro2[x][y] = 1;
+            }
+            //Condicionas para criar habilidade em "cruz"
+            if(x > 3 && x < 7 && x % 2 == 0 && y == 7) {
+                tabuleiro2[x][y] = 1;
+            }
+            if(x > 3 && x < 7 && x % 2 != 0 && y > 4 && y < 10) {
+                tabuleiro2[x][y] = 1;
+            }
+            printf("%d ", tabuleiro2[x][y]);
+        }
+        printf("\n");
+    }
+        return 0;
 }
